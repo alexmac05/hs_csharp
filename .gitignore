@@ -1,0 +1,10 @@
+*.dll
+*.config
+*.csprog
+*.exe
+app.config
+*.suo
+*.pdh
+*.cache
+*.pdb
+*.xml
