@@ -1,0 +1,6 @@
+C:\Users\IEUser\Documents\Visual Studio 2015\Projects\hs_csharp\HelloSignConsoleTester\HelloSignConsoleTester\bin\Debug\HelloSignConsoleTester.exe.config
+C:\Users\IEUser\Documents\Visual Studio 2015\Projects\hs_csharp\HelloSignConsoleTester\HelloSignConsoleTester\bin\Debug\HelloSignConsoleTester.exe
+C:\Users\IEUser\Documents\Visual Studio 2015\Projects\hs_csharp\HelloSignConsoleTester\HelloSignConsoleTester\bin\Debug\HelloSignConsoleTester.pdb
+C:\Users\IEUser\Documents\Visual Studio 2015\Projects\hs_csharp\HelloSignConsoleTester\HelloSignConsoleTester\obj\Debug\HelloSignConsoleTester.csprojResolveAssemblyReference.cache
+C:\Users\IEUser\Documents\Visual Studio 2015\Projects\hs_csharp\HelloSignConsoleTester\HelloSignConsoleTester\obj\Debug\HelloSignConsoleTester.exe
+C:\Users\IEUser\Documents\Visual Studio 2015\Projects\hs_csharp\HelloSignConsoleTester\HelloSignConsoleTester\obj\Debug\HelloSignConsoleTester.pdb
