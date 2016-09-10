@@ -12,6 +12,7 @@ namespace HelloSignConsoleTester
     class Program
     {
         //https://support.microsoft.com/en-us/kb/815786
+        //http://stackoverflow.com/questions/11451535/gitignore-not-working
 
         static void Main(string[] args)
         {
@@ -27,10 +28,5 @@ namespace HelloSignConsoleTester
 
         }
 
-        static void GetConnectionStrings()
-        {
-    
-
-        }
     }
 }
