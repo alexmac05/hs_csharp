@@ -101,7 +101,8 @@ namespace HelloSignConsoleTester
                 }
                 else if (menu_item == "22")
                 {
-                    sendPureRequest(client, apiKey, "getAccount", hslogin, hspassword);
+                    //sendPureRequest(client, apiKey, "getAccount", hslogin, hspassword);
+                    sendPureRequest(client, apiKey, "sendSignatureRequest", hslogin, hspassword);
                 }
                 
 
@@ -185,7 +186,17 @@ namespace HelloSignConsoleTester
                     restClient.Authenticator = new HttpBasicAuthenticator(hs_login, hs_password);
 
                     var request = new RestRequest();
-                    request.Resource = "/v3/account";
+                    request.Resource = "v3/signature_request/send_with_template";
+                    request.Method = Method.POST;
+                    request.AddParameter("template_id", "422eb83ea77961cee63298a6bb9a1e867bf5ba8d");
+                    request.AddParameter("title", "test");
+                    request.AddParameter("message", "testing");
+                    request.AddParameter("signers[Client][name]", "George");
+                    request.AddParameter("signers[Client][email_address]", "alex.mcferron@hellosign.com");
+                    request.AddParameter("test_mode", 1);
+
+
+
                     IRestResponse response = restClient.Execute(request);
 
                     Console.WriteLine(response.Content);
