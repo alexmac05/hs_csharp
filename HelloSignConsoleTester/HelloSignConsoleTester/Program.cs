@@ -102,7 +102,8 @@ namespace HelloSignConsoleTester
                 else if (menu_item == "22")
                 {
                     //sendPureRequest(client, apiKey, "getAccount", hslogin, hspassword);
-                    sendPureRequest(client, apiKey, "sendSignatureRequest", hslogin, hspassword);
+                    //sendPureRequest(client, apiKey, "sendSignatureRequest", hslogin, hspassword);
+                    sendPureRequest(client, apiKey, "sendSignatureRequestCustomFieldsTemplate", hslogin, hspassword);
                 }
                 
 
@@ -146,7 +147,7 @@ namespace HelloSignConsoleTester
                     var restClient = new RestClient();
 
 
-                    
+
                     string buildTheRequest = "https://" + apikey + ":@api.hellosign.com";
                     restClient.BaseUrl = new Uri(buildTheRequest);
                     restClient.Authenticator = new HttpBasicAuthenticator(hs_login, hs_password);
@@ -180,7 +181,7 @@ namespace HelloSignConsoleTester
                     var restClient = new RestClient();
 
 
-                    
+
                     string buildTheRequest = "https://" + apikey + ":@api.hellosign.com";
                     restClient.BaseUrl = new Uri(buildTheRequest);
                     restClient.Authenticator = new HttpBasicAuthenticator(hs_login, hs_password);
@@ -218,7 +219,52 @@ namespace HelloSignConsoleTester
 
 
 
-        }
+            }
+            else if (function == "sendSignatureRequestCustomFieldsTemplate")
+            {
+                try
+                {
+                    var restClient = new RestClient();
+
+
+                    // -F 'custom_fields=[{"name":"newline", "value":"$20,000", "editor":"Client", "required":true}]' \
+                    //// -F 'custom_fields=[{'name':'newline', 'value':'$20,000', 'editor':'Client', 'required':true}]' \
+                    string buildTheRequest = "https://" + apikey + ":@api.hellosign.com";
+                    restClient.BaseUrl = new Uri(buildTheRequest);
+                    restClient.Authenticator = new HttpBasicAuthenticator(hs_login, hs_password);
+
+                    var request = new RestRequest();
+                    request.Resource = "v3/signature_request/send_with_template";
+                    request.Method = Method.POST;
+                    request.AddParameter("template_id", "cc93d9348fd415f1c54f632e75519d3296e7acb9");
+                    request.AddParameter("title", "test");
+                    request.AddParameter("message", "testing");
+                    request.AddParameter("signers[Client][name]", "George");
+                    request.AddParameter("signers[Client][email_address]", "alex.mcferron@hellosign.com");
+                    request.AddParameter("custom_fields", "[{\"name\":\"newline\", \"value\":\"$20,000\", \"editor\":\"Client\", \"required\":true}]");
+                    request.AddParameter("test_mode", 1);
+
+
+
+                    IRestResponse response = restClient.Execute(request);
+
+                    Console.WriteLine(response.Content);
+
+                    if (response.ErrorException != null)
+                    {
+                        const string message = "Error retrieving response.  Check inner details for more info.";
+                        var helloSignException = new ApplicationException(message, response.ErrorException);
+                        throw helloSignException;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message, ex.InnerException.Message);
+                }
+
+
+            }
 
 
 
